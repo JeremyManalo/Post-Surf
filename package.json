@@ -21,6 +21,7 @@
     "mongoose": "^5.1.6"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^1.17.5"
   },
   "engines": {
