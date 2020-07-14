@@ -17,6 +17,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.0",
     "express": "^4.16.3",
+    "mongodb": "^3.5.9",
     "mongoose": "^5.1.6"
   },
   "devDependencies": {
@@ -24,5 +25,9 @@
   },
   "engines": {
     "node": "10.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JeremyManalo/Post-Surf-Web.git"
   }
 }
