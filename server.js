@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 // DB config
 const devUri = require("./config/keys").mongoURI;
-const prodUri = process.env.MONGODB_URI;
+const prodUri = process.env.MONGO_URI;
 const db = prodUri || devUri
 
 // Connect to Mongo
