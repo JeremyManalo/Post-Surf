@@ -7,13 +7,11 @@ const items = require("./routes/api/items");
 
 const app = express();
 
-const isInProduction = process.env.NODE_ENV === "production"
-
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
 // DB config
-const db = isInProduction ? process.env.MONGO_URI : require("./config/keys").mongoURI;
+const db = process.env.MONGO_URI || require("./config/keys").mongoURI;
 
 // Connect to Mongo
 mongoose
@@ -25,7 +23,7 @@ mongoose
 app.use("/api/items", items);
 
 // Serve static assets if in production
-if (isInProduction) {
+if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
 
