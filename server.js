@@ -7,19 +7,16 @@ const items = require("./routes/api/items");
 
 const app = express();
 
-const isInProduction = process.env.NODE_ENV === "production"
+const isInProduction = process.env.NODE_ENV === "production";
+
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
-// DB config for dev
-let db = ""
-// DB config for prod
-if (isInProduction) {
-  db = process.env.MONGO_URI;
-} else {
-  db = require("./config/keys").mongoURI;
-}
+// DB config
+const devUri = require("./config/keys").mongoURI;
+const prodUri = process.env.MONGO_URI;
+const db = prodUri || devUri
 
 // Connect to Mongo
 mongoose
