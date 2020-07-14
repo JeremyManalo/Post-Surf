@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 // DB config
 const db = process.env.MONGO_URI || require("./config/keys").mongoURI;
+console.log(`db: ${db}`);
 
 // Connect to Mongo
 mongoose
