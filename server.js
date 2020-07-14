@@ -13,10 +13,12 @@ const isInProduction = process.env.NODE_ENV === "production"
 app.use(bodyParser.json());
 
 // DB config for dev
-const db = require("./config/keys").mongoURI;
+let db = ""
 // DB config for prod
 if (isInProduction) {
   db = process.env.MONGO_URI;
+} else {
+  db = require("./config/keys").mongoURI;
 }
 
 // Connect to Mongo
