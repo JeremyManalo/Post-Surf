@@ -15,9 +15,12 @@
   "author": "Jeremy Manalo",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.0",
+    "config": "^3.3.1",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.1.6"
   },
