@@ -9,19 +9,25 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-prebuild": "npm i -D dotenv",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
   },
   "author": "Jeremy Manalo",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "concurrently": "^3.6.0",
+    "config": "^3.3.1",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.1.6"
   },
   "devDependencies": {
+    "concurrently": "^3.6.1",
     "dotenv": "^8.2.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.20.3",
     "nodemon": "^1.17.5"
   },
   "engines": {

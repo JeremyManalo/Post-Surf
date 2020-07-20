@@ -1,6 +1,6 @@
 node_modules
 package-lock.json
-config/keys.js
+config/default.json
 .DS_Store
 /*.env
 config/default.json
