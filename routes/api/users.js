@@ -1,27 +1,26 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const config = require("config");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+const config = require('config');
+const jwt = require('jsonwebtoken');
 
 // Item Model
-const Item = require("../../models/User");
+const Item = require('../../models/User');
 
 // @route   Post api/users
 // @desc    Create new user
 // @access  Public
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   const { name, email, password } = req.body;
 
   // Simple validation
   if (!name || !email || !password) {
-    return res.status(400).json({ message: "Please enter all fields" });
+    return res.status(400).json({ message: 'Please enter all fields' });
   }
 
   // Check for existing users
   User.findOne({ email }).then((user) => {
-    if (user)
-      return res.status(400).json({ message: "User already exists" });
+    if (user) return res.status(400).json({ message: 'User already exists' });
 
     const newUser = new User({ name, email, password });
 
@@ -33,7 +32,7 @@ router.post("/", (req, res) => {
         newUser.save().then((user) => {
           jwt.sign(
             { id: user.id },
-            config.get('jwtSecret'),
+            process.env.jwtSecret || config.get('jwtSecret'),
             (err, token) => {
               if (err) throw err;
               res.json({
