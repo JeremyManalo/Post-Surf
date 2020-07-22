@@ -7,32 +7,33 @@ import {
   Form,
   FormGroup,
   Label,
-  Input
+  Input,
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
+import PropTypes from 'prop-types';
 
 class ItemModal extends Component {
   state = {
     modal: false,
-    name: ''
+    name: '',
   };
 
   toggle = () => {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
     });
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const newItem = {
-      name: this.state.name
+      name: this.state.name,
     };
 
     // Add item via addItem action
@@ -78,11 +79,9 @@ class ItemModal extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  item: state.item
+const mapStateToProps = (state) => ({
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(
-  mapStateToProps,
-  { addItem }
-)(ItemModal);
+export default connect(mapStateToProps, { addItem })(ItemModal);
