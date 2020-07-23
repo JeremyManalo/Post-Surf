@@ -19,6 +19,10 @@ class ItemModal extends Component {
     name: '',
   };
 
+  static propTypes = {
+    isAuthenticated: PropTypes.bool,
+  };
+
   toggle = () => {
     this.setState({
       modal: !this.state.modal,
@@ -46,13 +50,17 @@ class ItemModal extends Component {
   render() {
     return (
       <div>
-        <Button
-          color="dark"
-          style={{ marginBottom: '2rem' }}
-          onClick={this.toggle}
-        >
-          Add Item
-        </Button>
+        {this.props.isAuthenticated ? (
+          <Button
+            color="dark"
+            style={{ marginBottom: '2rem' }}
+            onClick={this.toggle}
+          >
+            Add Item
+          </Button>
+        ) : (
+          <h4 className="mb-3 ml-4">Please log in to manage items</h4>
+        )}
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add To Shopping List</ModalHeader>
