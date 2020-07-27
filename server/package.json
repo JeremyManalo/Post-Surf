@@ -4,24 +4,29 @@
   "description": "Surf location forum built with the MERN stack",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
+    "client-install": "npm install --prefix ../client",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
+    "client": "npm start --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-prebuild": "npm i -D dotenv",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd ../client && npm install && npm run build"
   },
   "author": "Jeremy Manalo",
   "license": "MIT",
   "dependencies": {
+    "@types/jest": "^26.0.7",
+    "@types/node": "^14.0.26",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "config": "^3.3.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
-    "mongoose": "^5.1.6"
+    "mongoose": "^5.1.6",
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "concurrently": "^3.6.1",
